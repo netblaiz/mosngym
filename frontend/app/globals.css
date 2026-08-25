@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+/* ── Default dark theme ── */
+:root,
+.dark {
+  --background:         222.2 84% 4.9%;
+  --foreground:         210 40% 98%;
+  --card:               222.2 84% 4.9%;
+  --card-foreground:    210 40% 98%;
+  --popover:            222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary:            217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary:          217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted:              217.2 32.6% 17.5%;
+  --muted-foreground:   215 20.2% 65.1%;
+  --accent:             217.2 32.6% 17.5%;
+  --accent-foreground:  210 40% 98%;
+  --destructive:        0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border:             217.2 32.6% 17.5%;
+  --input:              217.2 32.6% 17.5%;
+  --ring:               224.3 76.3% 48%;
+  --radius:             0.75rem;
+}
+
+/* ── Light theme ── */
+.light,
+[data-theme="light"] {
+  --background:         0 0% 100%;
+  --foreground:         222.2 84% 4.9%;
+  --card:               0 0% 100%;
+  --card-foreground:    222.2 84% 4.9%;
+  --popover:            0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary:            221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary:          210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted:              210 40% 96.1%;
+  --muted-foreground:   215.4 16.3% 46.9%;
+  --accent:             210 40% 96.1%;
+  --accent-foreground:  222.2 47.4% 11.2%;
+  --destructive:        0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border:             214.3 31.8% 91.4%;
+  --input:              214.3 31.8% 91.4%;
+  --ring:               221.2 83.2% 53.3%;
+}
+
+/* ── Vibrant theme ── */
+[data-theme="vibrant"] {
+  --background:         260 55% 8%;
+  --foreground:         260 15% 95%;
+  --card:               260 45% 10%;
+  --card-foreground:    260 15% 95%;
+  --popover:            260 45% 10%;
+  --popover-foreground: 260 15% 95%;
+  --primary:            263 70% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary:          260 30% 15%;
+  --secondary-foreground: 260 15% 85%;
+  --muted:              260 30% 14%;
+  --muted-foreground:   260 20% 55%;
+  --accent:             260 30% 14%;
+  --accent-foreground:  260 15% 85%;
+  --destructive:        0 63% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border:             260 25% 16%;
+  --input:              260 25% 14%;
+  --ring:               263 70% 60%;
+}
+
+/* ── Midnight theme ── */
+[data-theme="midnight"] {
+  --background:         222 60% 5%;
+  --foreground:         210 40% 95%;
+  --card:               222 50% 7%;
+  --card-foreground:    210 40% 95%;
+  --popover:            222 50% 7%;
+  --popover-foreground: 210 40% 95%;
+  --primary:            199 89% 48%;
+  --primary-foreground: 0 0% 100%;
+  --secondary:          222 40% 12%;
+  --secondary-foreground: 210 30% 80%;
+  --muted:              222 40% 12%;
+  --muted-foreground:   210 20% 50%;
+  --accent:             222 40% 12%;
+  --accent-foreground:  210 30% 80%;
+  --destructive:        0 63% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border:             222 35% 14%;
+  --input:              222 35% 12%;
+  --ring:               199 89% 48%;
+}
+
+/* ── Forest theme ── */
+[data-theme="forest"] {
+  --background:         150 50% 4%;
+  --foreground:         150 15% 92%;
+  --card:               150 40% 6%;
+  --card-foreground:    150 15% 92%;
+  --popover:            150 40% 6%;
+  --popover-foreground: 150 15% 92%;
+  --primary:            160 84% 39%;
+  --primary-foreground: 0 0% 100%;
+  --secondary:          150 30% 10%;
+  --secondary-foreground: 150 15% 75%;
+  --muted:              150 30% 10%;
+  --muted-foreground:   150 15% 50%;
+  --accent:             150 30% 10%;
+  --accent-foreground:  150 15% 75%;
+  --destructive:        0 63% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border:             150 25% 13%;
+  --input:              150 25% 11%;
+  --ring:               160 84% 39%;
+}
+
+/* ── Body background per theme ── */
+body {
+  background-color: hsl(var(--background));
+  color:            hsl(var(--foreground));
+  font-family:      'Inter', system-ui, -apple-system, sans-serif;
+  min-height:       100vh;
+  transition:       background-color 0.25s ease, color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+[data-theme="vibrant"] body {
+  background-image: radial-gradient(ellipse at 0% 0%, rgba(139,92,246,0.15) 0%, transparent 50%),
+                    radial-gradient(ellipse at 100% 100%, rgba(236,72,153,0.10) 0%, transparent 50%);
+}
+
+[data-theme="midnight"] body {
+  background-image: radial-gradient(ellipse at 0% 0%, rgba(30,58,138,0.20) 0%, transparent 50%),
+                    radial-gradient(ellipse at 100% 100%, rgba(6,182,212,0.10) 0%, transparent 50%);
+}
+
+[data-theme="forest"] body {
+  background-image: radial-gradient(ellipse at 0% 0%, rgba(20,83,45,0.25) 0%, transparent 50%),
+                    radial-gradient(ellipse at 100% 100%, rgba(16,185,129,0.08) 0%, transparent 50%);
+}
+
+/* ── Base resets ── */
+* { box-sizing: border-box; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
+
+/* ── Smooth theme transitions ── */
+*, *::before, *::after {
+  transition-property:        background-color, border-color, color, fill, stroke;
+  transition-duration:        0.2s;
+  transition-timing-function: ease;
+}
+/* Exclude elements where transitions cause flicker */
+svg *, img, video, [class*="recharts"] {
+  transition: none !important;
+}

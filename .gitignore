@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+frontend/.env
+backend/.env
+backend/v1/.env
+backend/v2/.env
+
+# Next.js
+.next/
+frontend/.next/
+
+# Build output
+dist/
+build/
+
+# Prisma
+prisma/*.db
+prisma/*.db-journal
+
+# Logs
+*.log
+
+# OS
+.DS_Store

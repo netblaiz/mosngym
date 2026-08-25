@@ -1,0 +1,148 @@
+// lib/themes.ts
+// All available themes for the gym dashboard
+
+export type ThemeId = 'dark' | 'light' | 'vibrant' | 'midnight' | 'forest'
+
+export interface Theme {
+  id:          ThemeId
+  name:        string
+  description: string
+  preview:     string[] // gradient colors for preview swatch
+}
+
+export const THEMES: Theme[] = [
+  {
+    id:          'dark',
+    name:        'Dark',
+    description: 'Classic dark slate — clean and professional',
+    preview:     ['#0f172a', '#1e293b', '#334155'],
+  },
+  {
+    id:          'light',
+    name:        'Light',
+    description: 'Clean white with subtle grey accents',
+    preview:     ['#ffffff', '#f8fafc', '#e2e8f0'],
+  },
+  {
+    id:          'vibrant',
+    name:        'Vibrant',
+    description: 'Deep purple with electric violet and pink accents',
+    preview:     ['#0f0a1e', '#8b5cf6', '#ec4899'],
+  },
+  {
+    id:          'midnight',
+    name:        'Midnight',
+    description: 'Deep navy blue with cyan highlights',
+    preview:     ['#0a0f1e', '#1e3a8a', '#06b6d4'],
+  },
+  {
+    id:          'forest',
+    name:        'Forest',
+    description: 'Dark green with emerald accents',
+    preview:     ['#0a1a0f', '#14532d', '#10b981'],
+  },
+]
+
+// CSS variables per theme — injected into :root
+export const THEME_VARS: Record<ThemeId, Record<string, string>> = {
+  dark: {
+    '--background':        '222.2 84% 4.9%',
+    '--foreground':        '210 40% 98%',
+    '--card':              '222.2 84% 4.9%',
+    '--card-foreground':   '210 40% 98%',
+    '--primary':           '217.2 91.2% 59.8%',
+    '--primary-foreground':'222.2 47.4% 11.2%',
+    '--muted':             '217.2 32.6% 17.5%',
+    '--muted-foreground':  '215 20.2% 65.1%',
+    '--border':            '217.2 32.6% 17.5%',
+    '--sidebar-bg':        '#0f172a',
+    '--sidebar-border':    'rgba(255,255,255,0.06)',
+    '--sidebar-active-bg': 'rgba(59,130,246,0.15)',
+    '--sidebar-active':    '#60a5fa',
+    '--body-bg':           '#0f172a',
+    '--body-bg-2':         '#1e293b',
+    '--blob-1':            'rgba(59,130,246,0.08)',
+    '--blob-2':            'rgba(99,102,241,0.06)',
+    '--accent-grad':       'linear-gradient(135deg, #3b82f6, #6366f1)',
+  },
+  light: {
+    '--background':        '0 0% 100%',
+    '--foreground':        '222.2 84% 4.9%',
+    '--card':              '0 0% 100%',
+    '--card-foreground':   '222.2 84% 4.9%',
+    '--primary':           '221.2 83.2% 53.3%',
+    '--primary-foreground':'210 40% 98%',
+    '--muted':             '210 40% 96.1%',
+    '--muted-foreground':  '215.4 16.3% 46.9%',
+    '--border':            '214.3 31.8% 91.4%',
+    '--sidebar-bg':        '#f8fafc',
+    '--sidebar-border':    'rgba(0,0,0,0.06)',
+    '--sidebar-active-bg': 'rgba(59,130,246,0.08)',
+    '--sidebar-active':    '#2563eb',
+    '--body-bg':           '#f8fafc',
+    '--body-bg-2':         '#f1f5f9',
+    '--blob-1':            'rgba(59,130,246,0.04)',
+    '--blob-2':            'rgba(99,102,241,0.03)',
+    '--accent-grad':       'linear-gradient(135deg, #3b82f6, #6366f1)',
+  },
+  vibrant: {
+    '--background':        '260 60% 8%',
+    '--foreground':        '260 20% 95%',
+    '--card':              '260 40% 6%',
+    '--card-foreground':   '260 20% 95%',
+    '--primary':           '263 70% 60%',
+    '--primary-foreground':'0 0% 100%',
+    '--muted':             '260 30% 12%',
+    '--muted-foreground':  '260 20% 55%',
+    '--border':            '260 30% 14%',
+    '--sidebar-bg':        '#130c26',
+    '--sidebar-border':    'rgba(255,255,255,0.06)',
+    '--sidebar-active-bg': 'rgba(139,92,246,0.20)',
+    '--sidebar-active':    '#a78bfa',
+    '--body-bg':           '#0f0a1e',
+    '--body-bg-2':         '#160d2e',
+    '--blob-1':            'rgba(139,92,246,0.15)',
+    '--blob-2':            'rgba(236,72,153,0.10)',
+    '--accent-grad':       'linear-gradient(135deg, #8b5cf6, #ec4899)',
+  },
+  midnight: {
+    '--background':        '222 60% 6%',
+    '--foreground':        '210 40% 95%',
+    '--card':              '222 50% 7%',
+    '--card-foreground':   '210 40% 95%',
+    '--primary':           '199 89% 48%',
+    '--primary-foreground':'0 0% 100%',
+    '--muted':             '222 40% 12%',
+    '--muted-foreground':  '210 20% 50%',
+    '--border':            '222 35% 14%',
+    '--sidebar-bg':        '#080f1f',
+    '--sidebar-border':    'rgba(255,255,255,0.05)',
+    '--sidebar-active-bg': 'rgba(6,182,212,0.15)',
+    '--sidebar-active':    '#22d3ee',
+    '--body-bg':           '#0a0f1e',
+    '--body-bg-2':         '#0d1535',
+    '--blob-1':            'rgba(30,58,138,0.25)',
+    '--blob-2':            'rgba(6,182,212,0.10)',
+    '--accent-grad':       'linear-gradient(135deg, #1e3a8a, #06b6d4)',
+  },
+  forest: {
+    '--background':        '150 50% 5%',
+    '--foreground':        '150 20% 92%',
+    '--card':              '150 40% 6%',
+    '--card-foreground':   '150 20% 92%',
+    '--primary':           '160 84% 39%',
+    '--primary-foreground':'0 0% 100%',
+    '--muted':             '150 30% 10%',
+    '--muted-foreground':  '150 15% 50%',
+    '--border':            '150 25% 13%',
+    '--sidebar-bg':        '#071210',
+    '--sidebar-border':    'rgba(255,255,255,0.05)',
+    '--sidebar-active-bg': 'rgba(16,185,129,0.15)',
+    '--sidebar-active':    '#34d399',
+    '--body-bg':           '#0a1a0f',
+    '--body-bg-2':         '#0d2010',
+    '--blob-1':            'rgba(20,83,45,0.30)',
+    '--blob-2':            'rgba(16,185,129,0.10)',
+    '--accent-grad':       'linear-gradient(135deg, #14532d, #10b981)',
+  },
+}
