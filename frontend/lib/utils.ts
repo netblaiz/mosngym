@@ -9,14 +9,48 @@ export function cn(...inputs: ClassValue[]) {
 
 // ─── Formatters ───────────────────────────────────────────────────────────────
 
-export function formatCurrency(amount: number | string, currency = 'NGN'): string {
-  const num = typeof amount === 'string' ? parseFloat(amount) : amount
-  return new Intl.NumberFormat('en-NG', {
-    style:    'currency',
-    currency,
-    minimumFractionDigits: 0,
-  }).format(num)
+export function formatCurrency(
+  amount:   string | number | undefined | null,
+  currency?: string
+): string {
+  const value    = Number(amount ?? 0)
+  const currency_ = currency ?? getGymCurrency()
+
+  try {
+    return new Intl.NumberFormat('en', {
+      style:                 'currency',
+      currency:              currency_,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(value)
+  } catch {
+    // Fallback if currency code is invalid
+    return `${currency_} ${value.toLocaleString()}`
+  }
 }
+
+export function getGymCurrency(): string {
+  if (typeof window === 'undefined') return 'NGN'
+  return localStorage.getItem('gym_currency') ?? 'NGN'
+}
+
+export function setGymCurrency(currency: string) {
+  if (typeof window === 'undefined') return
+  localStorage.setItem('gym_currency', currency)
+}
+
+export function getCurrencySymbol(currency?: string): string {
+  const c = currency ?? getGymCurrency()
+  try {
+    const parts = new Intl.NumberFormat('en', {
+      style: 'currency', currency: c, minimumFractionDigits: 0,
+    }).formatToParts(0)
+    return parts.find(p => p.type === 'currency')?.value ?? c
+  } catch {
+    return c
+  }
+}
+
 
 export function formatDate(date: string | Date): string {
   return format(new Date(date), 'MMM d, yyyy')
